@@ -1,0 +1,8 @@
+.columna {
+  width: 33.333%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}

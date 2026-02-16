@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.middle-area {
+  width: 33.333%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* SVG overlay para líneas de conexión */
+.lineas-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Cada línea individual sí es clickable */
+.linea {
+  stroke: #555;
+  stroke-width: 2;
+  pointer-events: stroke;
+  cursor: pointer;
+  transition: stroke 0.15s;
+}
+
+.linea:hover {
+  stroke: #ef4444;
+  stroke-width: 3;
+}
+
+/* Botón X en el punto medio de cada conexión */
+.linea-delete {
+  pointer-events: all;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.lineas-svg:hover .linea-delete {
+  opacity: 1;
+}
+
+.linea-delete circle {
+  fill: #fff;
+  stroke: #ccc;
+  stroke-width: 1;
+}
+
+.linea-delete:hover circle {
+  fill: #fee2e2;
+  stroke: #ef4444;
+}
+
+.linea-delete text {
+  font-size: 14px;
+  fill: #999;
+}
+
+.linea-delete:hover text {
+  fill: #ef4444;
 }
